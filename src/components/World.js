@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from './Row';
 import './World.css';
+import Game from "../gameOfLife";
 
 class World extends React.Component {
 
@@ -32,14 +33,9 @@ class World extends React.Component {
   }
 
   tick = () => {
-    let newState = [];
-    for (let row = 0; row < this.WORLD_WIDTH; row++) {
-      newState[row] = [];
-      for (let col = 0; col < this.WORLD_HEIGHT; col++) {
-        newState[row].push(Math.random() > .75);
-      }
-    }
-    this.setState({world: newState});
+    let oldWorld = this.state.world;
+    let newWorld = Game.tick(oldWorld);
+    this.setState({world: newWorld});
   }
 
   render = () => {
