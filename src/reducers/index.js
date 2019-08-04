@@ -26,10 +26,16 @@ function rootReducer(state = initialState, action) {
     };
   }
 
-  if (action.type === TICK) return { 
-    ...state,
-    world: state.paused && !action.payload.manual ? state.world : Game.tick(state.world),
-    generation: state.generation + 1
+  if (action.type === TICK) {
+    if (!state.paused || action.payload.manual) {
+      return {
+        ...state,
+        world: Game.tick(state.world),
+        generation: state.generation + 1
+      }
+    } else {
+      return state;
+    }
   };
 
   if (action.type === RANDOMIZE)         return { ...state, world: Game.newRandomWorld(WORLD_WIDTH, WORLD_HEIGHT), generation: 0 };
