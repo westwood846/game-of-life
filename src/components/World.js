@@ -52,14 +52,7 @@ class World extends React.Component {
   }
 
   randomizeWorld = () => {
-    let newState = [];
-    for (let row = 0; row < this.WORLD_WIDTH; row++) {
-      newState[row] = [];
-      for (let col = 0; col < this.WORLD_HEIGHT; col++) {
-        newState[row].push(Math.random() > .75);
-      }
-    }
-    this.setState({world: newState});
+    this.setState({world: Game.newRandomWorld(this.WORLD_WIDTH, this.WORLD_HEIGHT)});
   }
 
   render = () => {

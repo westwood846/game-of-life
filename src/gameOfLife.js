@@ -15,6 +15,17 @@ const newEmptyWorld = (width, height) => {
   return world;
 }
 
+const newRandomWorld = (width, height, density = .75) => {
+  let world = [];
+  for (let row = 0; row < width; row++) {
+    world[row] = [];
+    for (let col = 0; col < height; col++) {
+      world[row].push(Math.random() > density);
+    }
+  }
+  return world;
+}
+
 const getCell = (world, row, col) => {
   if (
     row < 0
@@ -72,4 +83,4 @@ const tick = world => {
   return nextGeneration;
 }
 
-export default { parseDiagram, newEmptyWorld, getCell, setCell, getNeighbours, countAliveNeighbours, tickCell, tick };
+export default { parseDiagram, newEmptyWorld, newRandomWorld, getCell, setCell, getNeighbours, countAliveNeighbours, tickCell, tick };
