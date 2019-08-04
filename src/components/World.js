@@ -14,17 +14,12 @@ class World extends React.Component {
     this.state = {
       world: []
     }
-    for (let row = 0; row < this.WORLD_WIDTH; row++) {
-      this.state.world[row] = [];
-      for (let col = 0; col < this.WORLD_HEIGHT; col++) {
-        this.state.world[row].push(Math.random() > .75);
-      }
-    }
 
     this.handleCellClick = this.handleCellClick.bind(this);
   }
 
   componentDidMount = () => {
+    this.randomizeWorld();
     this.interval = setInterval(this.tick, this.props.tickDuration);
   }
 
@@ -50,6 +45,28 @@ class World extends React.Component {
     let oldCellState = Game.getCell(oldWorld, row, col);
     let newWorld = Game.setCell(oldWorld, row, col, !oldCellState);
     this.setState({world: newWorld});
+  }
+
+  clearWorld = () => {
+    let newState = [];
+    for (let row = 0; row < this.WORLD_WIDTH; row++) {
+      newState[row] = [];
+      for (let col = 0; col < this.WORLD_HEIGHT; col++) {
+        newState[row].push(false);
+      }
+    }
+    this.setState({world: newState});
+  }
+
+  randomizeWorld = () => {
+    let newState = [];
+    for (let row = 0; row < this.WORLD_WIDTH; row++) {
+      newState[row] = [];
+      for (let col = 0; col < this.WORLD_HEIGHT; col++) {
+        newState[row].push(Math.random() > .75);
+      }
+    }
+    this.setState({world: newState});
   }
 
   render = () => {
