@@ -3,8 +3,8 @@ import Game from "../gameOfLife";
 import store from '../store/index';
 import { tick } from '../actions/index';
 
-const WORLD_WIDTH = 32;
-const WORLD_HEIGHT = 48;
+const WORLD_WIDTH = 64;
+const WORLD_HEIGHT = 40;
 
 const initialState = {
   paused: false,
