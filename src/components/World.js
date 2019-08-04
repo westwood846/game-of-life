@@ -20,6 +20,26 @@ class World extends React.Component {
       }
     }
 
+    
+  }
+
+  componentDidMount = () => {
+    this.interval = setInterval(this.tick, 1000);
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(this.interval);
+  }
+
+  tick = () => {
+    let newState = [];
+    for (let row = 0; row < this.WORLD_WIDTH; row++) {
+      newState[row] = [];
+      for (let col = 0; col < this.WORLD_HEIGHT; col++) {
+        newState[row].push(Math.random() > .75);
+      }
+    }
+    this.setState({world: newState});
   }
 
   render = () => {
