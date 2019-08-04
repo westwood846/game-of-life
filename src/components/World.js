@@ -32,6 +32,11 @@ class World extends React.Component {
     clearInterval(this.interval);
   }
 
+  componentWillUpdate = () => {
+    clearInterval(this.interval);
+    this.interval = setInterval(this.tick, this.props.tickDuration);
+  }
+
   tick = () => {
     if (!this.props.paused) {
       let oldWorld = this.state.world;
