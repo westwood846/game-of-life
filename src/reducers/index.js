@@ -39,7 +39,7 @@ function rootReducer(state = initialState, action) {
   };
 
   if (action.type === RANDOMIZE)         return { ...state, world: Game.newRandomWorld(WORLD_WIDTH, WORLD_HEIGHT), generation: 0 };
-  if (action.type === CLEAR)             return { ...state, world: Game.newEmptyWorld(WORLD_WIDTH, WORLD_HEIGHT), generation: 0 };
+  if (action.type === CLEAR)             return { ...state, world: Game.newEmptyWorld(WORLD_WIDTH, WORLD_HEIGHT), generation: 0, paused: true };
   if (action.type === TOGGLE_CELL)       return { ...state, world: Game.toggleCell(state.world, action.payload.row, action.payload.col) };
   return state;
 };

@@ -6,9 +6,9 @@ const parseDiagram = (raw, aliveChar="1") => {
 
 const newEmptyWorld = (width, height) => {
   let world = [];
-  for (let row = 0; row < width; row++) {
+  for (let row = 0; row < height; row++) {
     world[row] = [];
-    for (let col = 0; col < height; col++) {
+    for (let col = 0; col < width; col++) {
       world[row].push(false);
     }
   }
