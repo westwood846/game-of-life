@@ -8,13 +8,12 @@ const WORLD_HEIGHT = 48;
 
 const initialState = {
   paused: false,
-  tickDuration: 2000,
+  tickDuration: 500,
   world: Game.newRandomWorld(WORLD_WIDTH, WORLD_HEIGHT),
 };
 initialState.tickInterval = setInterval(() => store.dispatch(tick()), initialState.tickDuration);
 
 function rootReducer(state = initialState, action) {
-  console.log(action)
   if (action.type === TOGGLE_PAUSED)     return { ...state, paused: !state.paused };
 
   if (action.type === SET_TICK_DURATION) {
