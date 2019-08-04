@@ -1,0 +1,2 @@
+body{margin:0}.App{text-align:center}.controls{margin-bottom:1rem;display:flex;flex-direction:row;justify-content:center}.controls :not(:first-child){margin-left:1rem}.controls input{width:40px}.Cell{border:1px solid #000;position:relative;width:16px;height:16px;cursor:pointer}.Cell.alive{background-color:grey}.Row{flex-direction:row;justify-content:center}.Row,.World{display:flex}.World{flex-direction:column}
+/*# sourceMappingURL=main.1f0e70ec.chunk.css.map */
