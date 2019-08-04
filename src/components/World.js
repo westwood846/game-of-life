@@ -25,7 +25,7 @@ class World extends React.Component {
   }
 
   componentDidMount = () => {
-    this.interval = setInterval(this.tick, 2000);
+    this.interval = setInterval(this.tick, this.props.tickDuration);
   }
 
   componentWillUnmount = () => {
@@ -33,9 +33,11 @@ class World extends React.Component {
   }
 
   tick = () => {
-    let oldWorld = this.state.world;
-    let newWorld = Game.tick(oldWorld);
-    this.setState({world: newWorld});
+    if (!this.props.paused) {
+      let oldWorld = this.state.world;
+      let newWorld = Game.tick(oldWorld);
+      this.setState({world: newWorld});
+    }
   }
 
   handleCellClick = (row, col) => {
