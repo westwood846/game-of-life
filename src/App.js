@@ -8,11 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.worldRef = React.createRef();
-
     this.handleTickDurationInputChange = this.handleTickDurationInputChange.bind(this);
-    // this.handleClearButtonClick = this.handleClearButtonClick.bind(this);
-    // this.handleRandomButtonClick = this.handleRandomButtonClick.bind(this);
   }
 
   handleTickDurationInputChange = event => {
@@ -20,20 +16,7 @@ class App extends React.Component {
     this.props.setTickDuration(newTickDuration);
   }
 
-  // handleClearButtonClick = () => {
-  //   this.worldRef.current.clearWorld();
-  // }
-
-  // handleRandomButtonClick = () => {
-  //   this.worldRef.current.randomizeWorld();
-  // }
-
   render = () => {
-    // let props = { 
-    //   paused: this.state.paused,
-    //   tickDuration: this.state.tickDuration
-    // }
-
     return (
       <div className="App">
         <h1>Game of Life</h1>

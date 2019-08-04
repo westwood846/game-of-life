@@ -9,10 +9,6 @@ class World extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      // world: []
-    }
-
     this.handleCellClick = this.handleCellClick.bind(this);
   }
 
@@ -44,14 +40,6 @@ class World extends React.Component {
     let newWorld = Game.setCell(oldWorld, row, col, !oldCellState);
     this.setState({world: newWorld});
   }
-
-  // clearWorld = () => {
-  //   this.setState({world: Game.newEmptyWorld(this.WORLD_WIDTH, this.WORLD_HEIGHT)});
-  // }
-
-  // randomizeWorld = () => {
-  //   this.setState({world: Game.newRandomWorld(this.WORLD_WIDTH, this.WORLD_HEIGHT)});
-  // }
 
   render = () => {
     return <div className="World">
