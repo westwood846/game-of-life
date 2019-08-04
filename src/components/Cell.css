@@ -1,0 +1,10 @@
+.Cell {
+  border: 1px solid black;
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.Cell.alive {
+  background-color: grey;
+}
