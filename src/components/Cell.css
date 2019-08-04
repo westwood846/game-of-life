@@ -1,5 +1,5 @@
 .Cell {
-  border: 1px solid black;
+  border: 1px solid #eaeaea;
   position: relative;
   width: 16px;
   height: 16px;
@@ -7,5 +7,5 @@
 }
 
 .Cell.alive {
-  background-color: grey;
+  background-color: black;
 }
