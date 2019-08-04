@@ -1,4 +1,4 @@
-import { TOGGLE_PAUSED, SET_TICK_DURATION, TICK, RANDOMIZE, CLEAR } from "../actions/action-types";
+import { TOGGLE_PAUSED, SET_TICK_DURATION, TICK, RANDOMIZE, CLEAR, TOGGLE_CELL } from "../actions/action-types";
 import Game from "../gameOfLife";
 
 const WORLD_WIDTH = 32;
@@ -15,6 +15,7 @@ function rootReducer(state = initialState, action) {
   if (action.type === TICK)              return { ...state, world: Game.tick(state.world) };
   if (action.type === RANDOMIZE)         return { ...state, world: Game.newRandomWorld(WORLD_WIDTH, WORLD_HEIGHT) };
   if (action.type === CLEAR)             return { ...state, world: Game.newEmptyWorld(WORLD_WIDTH, WORLD_HEIGHT) };
+  if (action.type === TOGGLE_CELL)       return { ...state, world: Game.toggleCell(state.world, action.payload.row, action.payload.col) };
   return state;
 };
 export default rootReducer;
