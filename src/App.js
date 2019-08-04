@@ -25,7 +25,7 @@ class App extends React.Component {
           <label>Tick Duration: <input type="number" step="100" min="100" value={this.props.tickDuration} onChange={this.handleTickDurationInputChange}></input></label>
         </div>
         <div className="controls">
-          <button onClick={this.props.tick}>Tick</button>
+          <button onClick={this.props.tick(true)}>Tick</button>
           <button onClick={this.props.randomize}>Randomize</button>
           <button onClick={this.props.clear}>Clear</button>
         </div>
@@ -43,7 +43,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   togglePaused:    ()           => dispatch(togglePaused()),
   setTickDuration: tickDuration => dispatch(setTickDuration(tickDuration)),
-  tick:            ()           => dispatch(tick()),
+  tick:            manual => () => dispatch(tick(manual)),
   randomize:       ()           => dispatch(randomize()),
   clear:           ()           => dispatch(clear()),
 })

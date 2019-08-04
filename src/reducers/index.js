@@ -8,7 +8,7 @@ const WORLD_HEIGHT = 48;
 
 const initialState = {
   paused: false,
-  tickDuration: 100,
+  tickDuration: 2000,
   world: Game.newRandomWorld(WORLD_WIDTH, WORLD_HEIGHT),
 };
 initialState.tickInterval = setInterval(() => store.dispatch(tick()), initialState.tickDuration);
@@ -26,7 +26,7 @@ function rootReducer(state = initialState, action) {
     };
   }
 
-  if (action.type === TICK)              return { ...state, world: state.paused ? state.world : Game.tick(state.world) };
+  if (action.type === TICK)              return { ...state, world: state.paused && !action.payload.manual ? state.world : Game.tick(state.world) };
   if (action.type === RANDOMIZE)         return { ...state, world: Game.newRandomWorld(WORLD_WIDTH, WORLD_HEIGHT) };
   if (action.type === CLEAR)             return { ...state, world: Game.newEmptyWorld(WORLD_WIDTH, WORLD_HEIGHT) };
   if (action.type === TOGGLE_CELL)       return { ...state, world: Game.toggleCell(state.world, action.payload.row, action.payload.col) };
