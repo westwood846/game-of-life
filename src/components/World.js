@@ -21,11 +21,11 @@ class World extends React.Component {
       }
     }
 
-    
+    this.handleCellClick = this.handleCellClick.bind(this);
   }
 
   componentDidMount = () => {
-    this.interval = setInterval(this.tick, 750);
+    this.interval = setInterval(this.tick, 2000);
   }
 
   componentWillUnmount = () => {
@@ -38,9 +38,16 @@ class World extends React.Component {
     this.setState({world: newWorld});
   }
 
+  handleCellClick = (row, col) => {
+    let oldWorld = this.state.world;
+    let oldCellState = Game.getCell(oldWorld, row, col);
+    let newWorld = Game.setCell(oldWorld, row, col, !oldCellState);
+    this.setState({world: newWorld});
+  }
+
   render = () => {
     return <div className="World">
-      {this.state.world.map((row, index) => <Row key={index} cells={row}></Row>)}
+      {this.state.world.map((row, index) => <Row key={index} row={index} cells={row} handleCellClick={this.handleCellClick}></Row>)}
     </div>
   }
 }

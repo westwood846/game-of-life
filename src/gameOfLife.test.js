@@ -43,6 +43,19 @@ it('returns undefined when getting cell under y bounds', () => {
 });
 
 
+it('flips a live cell to a dead cell', () => {
+  let oldCellState = Game.getCell(world, 1, 1);
+  let newWorld = Game.setCell(world, 1, 1, !oldCellState);
+  expect(Game.getCell(newWorld, 1, 1)).toBe(false);
+});
+
+it('flips a dead cell to a live cell', () => {
+  let oldCellState = Game.getCell(world, 0, 2);
+  let newWorld = Game.setCell(world, 0, 2, !oldCellState);
+  expect(Game.getCell(newWorld, 0, 2)).toBe(true);
+});
+
+
 it('retrieves all Neighbours', () => {
   expect(Game.getNeighbours(world, 1, 1).sort()).toStrictEqual([false, false, false, false, true, true, true, true]);
 });

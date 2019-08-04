@@ -14,6 +14,12 @@ const getCell = (world, row, col) => {
   else return world[row][col];
 }
 
+const setCell = (world, row, col, alive=true) => {
+  let newWorld = world.map(row => row.slice());
+  newWorld[row][col] = alive;
+  return newWorld;
+}
+
 const getNeighbours = (world, row, col) => {
   return [
     getCell(world, row - 1, col),
@@ -55,4 +61,4 @@ const tick = world => {
   return nextGeneration;
 }
 
-export default { parseDiagram, getCell, getNeighbours, countAliveNeighbours, tickCell, tick };
+export default { parseDiagram, getCell, setCell, getNeighbours, countAliveNeighbours, tickCell, tick };
