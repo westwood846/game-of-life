@@ -15,12 +15,12 @@ const newEmptyWorld = (width, height) => {
   return world;
 }
 
-const newRandomWorld = (width, height, density = .75) => {
+const newRandomWorld = (width, height, density = .2) => {
   let world = [];
   for (let row = 0; row < width; row++) {
     world[row] = [];
     for (let col = 0; col < height; col++) {
-      world[row].push(Math.random() > density);
+      world[row].push(Math.random() <= density);
     }
   }
   return world;
