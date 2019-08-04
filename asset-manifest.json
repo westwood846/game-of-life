@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/game-of-lif/static/css/main.1f0e70ec.chunk.css",
-    "main.js": "/game-of-lif/static/js/main.ec0f14d1.chunk.js",
-    "main.js.map": "/game-of-lif/static/js/main.ec0f14d1.chunk.js.map",
-    "runtime~main.js": "/game-of-lif/static/js/runtime~main.916884ca.js",
-    "runtime~main.js.map": "/game-of-lif/static/js/runtime~main.916884ca.js.map",
-    "static/js/2.b4d71bb6.chunk.js": "/game-of-lif/static/js/2.b4d71bb6.chunk.js",
-    "static/js/2.b4d71bb6.chunk.js.map": "/game-of-lif/static/js/2.b4d71bb6.chunk.js.map",
-    "index.html": "/game-of-lif/index.html",
-    "precache-manifest.c7225351dfb6ca30354b69df75f738da.js": "/game-of-lif/precache-manifest.c7225351dfb6ca30354b69df75f738da.js",
-    "service-worker.js": "/game-of-lif/service-worker.js",
-    "static/css/main.1f0e70ec.chunk.css.map": "/game-of-lif/static/css/main.1f0e70ec.chunk.css.map"
+    "main.css": "/game-of-life/static/css/main.1f0e70ec.chunk.css",
+    "main.js": "/game-of-life/static/js/main.44d12058.chunk.js",
+    "main.js.map": "/game-of-life/static/js/main.44d12058.chunk.js.map",
+    "runtime~main.js": "/game-of-life/static/js/runtime~main.dfaa7c2d.js",
+    "runtime~main.js.map": "/game-of-life/static/js/runtime~main.dfaa7c2d.js.map",
+    "static/js/2.b4d71bb6.chunk.js": "/game-of-life/static/js/2.b4d71bb6.chunk.js",
+    "static/js/2.b4d71bb6.chunk.js.map": "/game-of-life/static/js/2.b4d71bb6.chunk.js.map",
+    "index.html": "/game-of-life/index.html",
+    "precache-manifest.6636200cd98ea756ad6ff961313f3f15.js": "/game-of-life/precache-manifest.6636200cd98ea756ad6ff961313f3f15.js",
+    "service-worker.js": "/game-of-life/service-worker.js",
+    "static/css/main.1f0e70ec.chunk.css.map": "/game-of-life/static/css/main.1f0e70ec.chunk.css.map"
   }
 }
