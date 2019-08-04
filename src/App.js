@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import World from './components/World';
-import { togglePaused, setTickDuration } from "./actions/index";
+import { togglePaused, setTickDuration, tick } from "./actions/index";
 
 class App extends React.Component {
   constructor(props) {
@@ -41,10 +41,11 @@ class App extends React.Component {
           <button onClick={this.props.togglePaused}>{this.props.paused ? "Resume" : "Pause"}</button>
           <label>Tick Duration: <input type="number" step="100" min="100" value={this.props.tickDuration} onChange={this.handleTickDurationInputChange}></input></label>
         </div>
-        {/* <div className="controls">
-          <button onClick={this.handleClearButtonClick}>Clear</button>
-          <button onClick={this.handleRandomButtonClick}>Random</button>
-        </div> */}
+        <div className="controls">
+          <button onClick={this.props.tick}>Tick</button>
+          {/* <button onClick={this.handleClearButtonClick}>Clear</button> */}
+          {/* <button onClick={this.handleRandomButtonClick}>Random</button> */}
+        </div>
         <World></World>
         {/* <World {...props} ref={this.worldRef}></World> */}
       </div>
@@ -59,7 +60,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   togglePaused: () => dispatch(togglePaused()),
-  setTickDuration: tickDuration => dispatch(setTickDuration(tickDuration))
+  setTickDuration: tickDuration => dispatch(setTickDuration(tickDuration)),
+  tick: () => dispatch(tick())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
