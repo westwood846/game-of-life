@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Row from './Row';
 import './World.css';
 import Game from "../gameOfLife";
@@ -62,4 +63,6 @@ class World extends React.Component {
   }
 }
 
-export default World;
+const mapStateToProps = state => ({...state});
+
+export default connect(mapStateToProps)(World);

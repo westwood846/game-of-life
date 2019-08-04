@@ -1,65 +1,65 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import World from './components/World';
+import { togglePaused, setTickDuration } from "./actions/index";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      paused: false,
-      tickDuration: 1000,
-    }
+    // this.worldRef = React.createRef();
 
-    this.worldRef = React.createRef();
-
-    this.handlePauseButtonClick = this.handlePauseButtonClick.bind(this);
     this.handleTickDurationInputChange = this.handleTickDurationInputChange.bind(this);
-    this.handleClearButtonClick = this.handleClearButtonClick.bind(this);
-    this.handleRandomButtonClick = this.handleRandomButtonClick.bind(this);
-  }
-
-  handlePauseButtonClick = () => {
-    this.setState({
-      paused: !this.state.paused
-    });
+    // this.handleClearButtonClick = this.handleClearButtonClick.bind(this);
+    // this.handleRandomButtonClick = this.handleRandomButtonClick.bind(this);
   }
 
   handleTickDurationInputChange = event => {
-    this.setState({
-      tickDuration: Number(event.target.value)
-    });
+    let newTickDuration = Number(event.target.value);
+    this.props.setTickDuration(newTickDuration);
   }
 
-  handleClearButtonClick = () => {
-    this.worldRef.current.clearWorld();
-  }
+  // handleClearButtonClick = () => {
+  //   this.worldRef.current.clearWorld();
+  // }
 
-  handleRandomButtonClick = () => {
-    this.worldRef.current.randomizeWorld();
-  }
+  // handleRandomButtonClick = () => {
+  //   this.worldRef.current.randomizeWorld();
+  // }
 
   render = () => {
-    let props = { 
-      paused: this.state.paused,
-      tickDuration: this.state.tickDuration
-    }
+    // let props = { 
+    //   paused: this.state.paused,
+    //   tickDuration: this.state.tickDuration
+    // }
 
     return (
       <div className="App">
         <h1>Game of Life</h1>
         <div className="controls">
-          <button onClick={this.handlePauseButtonClick}>{this.state.paused ? "Resume" : "Pause"}</button>
-          <label>Tick Duration: <input type="number" step="100" min="100" value={this.state.tickDuration} onChange={this.handleTickDurationInputChange}></input></label>
+          <button onClick={this.props.togglePaused}>{this.props.paused ? "Resume" : "Pause"}</button>
+          <label>Tick Duration: <input type="number" step="100" min="100" value={this.props.tickDuration} onChange={this.handleTickDurationInputChange}></input></label>
         </div>
-        <div className="controls">
+        {/* <div className="controls">
           <button onClick={this.handleClearButtonClick}>Clear</button>
           <button onClick={this.handleRandomButtonClick}>Random</button>
-        </div>
-        <World {...props} ref={this.worldRef}></World>
+        </div> */}
+        <World></World>
+        {/* <World {...props} ref={this.worldRef}></World> */}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  paused: state.paused,
+  tickDuration: state.tickDuration
+})
+
+const mapDispatchToProps = dispatch => ({
+  togglePaused: () => dispatch(togglePaused()),
+  setTickDuration: tickDuration => dispatch(setTickDuration(tickDuration))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
