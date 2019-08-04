@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import World from './components/World';
-import { togglePaused, setTickDuration, tick } from "./actions/index";
+import { togglePaused, setTickDuration, tick, randomize, clear } from "./actions/index";
 
 class App extends React.Component {
   constructor(props) {
@@ -43,11 +43,10 @@ class App extends React.Component {
         </div>
         <div className="controls">
           <button onClick={this.props.tick}>Tick</button>
-          {/* <button onClick={this.handleClearButtonClick}>Clear</button> */}
-          {/* <button onClick={this.handleRandomButtonClick}>Random</button> */}
+          <button onClick={this.props.randomize}>Randomize</button>
+          <button onClick={this.props.clear}>Clear</button>
         </div>
         <World></World>
-        {/* <World {...props} ref={this.worldRef}></World> */}
       </div>
     );
   }
@@ -59,9 +58,11 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  togglePaused: () => dispatch(togglePaused()),
+  togglePaused:    ()           => dispatch(togglePaused()),
   setTickDuration: tickDuration => dispatch(setTickDuration(tickDuration)),
-  tick: () => dispatch(tick())
+  tick:            ()           => dispatch(tick()),
+  randomize:       ()           => dispatch(randomize()),
+  clear:           ()           => dispatch(clear()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
