@@ -4,6 +4,17 @@ const parseDiagram = (raw, aliveChar="1") => {
   return world;
 }
 
+const newEmptyWorld = (width, height) => {
+  let world = [];
+  for (let row = 0; row < width; row++) {
+    world[row] = [];
+    for (let col = 0; col < height; col++) {
+      world[row].push(false);
+    }
+  }
+  return world;
+}
+
 const getCell = (world, row, col) => {
   if (
     row < 0
@@ -61,4 +72,4 @@ const tick = world => {
   return nextGeneration;
 }
 
-export default { parseDiagram, getCell, setCell, getNeighbours, countAliveNeighbours, tickCell, tick };
+export default { parseDiagram, newEmptyWorld, getCell, setCell, getNeighbours, countAliveNeighbours, tickCell, tick };

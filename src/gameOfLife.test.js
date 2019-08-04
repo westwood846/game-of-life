@@ -18,6 +18,16 @@ it('parses diagrams', () => {
 });
 
 
+it('creates an empty new world', () => {
+  let empty3x3 = Game.parseDiagram(`
+    000
+    000
+    000
+  `);
+  expect(Game.newEmptyWorld(3, 3)).toStrictEqual(empty3x3);
+});
+
+
 it('gets a live cell', () => {
   expect(Game.getCell(world, 1, 1)).toBe(true);
 });
