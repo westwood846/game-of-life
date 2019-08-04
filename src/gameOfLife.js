@@ -42,6 +42,10 @@ const setCell = (world, row, col, alive=true) => {
   return newWorld;
 }
 
+const toggleCell = (world, row, col) => {
+  return setCell(world, row, col, !getCell(world, row, col));
+}
+
 const getNeighbours = (world, row, col) => {
   return [
     getCell(world, row - 1, col),
@@ -83,4 +87,4 @@ const tick = world => {
   return nextGeneration;
 }
 
-export default { parseDiagram, newEmptyWorld, newRandomWorld, getCell, setCell, getNeighbours, countAliveNeighbours, tickCell, tick };
+export default { parseDiagram, newEmptyWorld, newRandomWorld, getCell, setCell, toggleCell, getNeighbours, countAliveNeighbours, tickCell, tick };

@@ -66,6 +66,15 @@ it('flips a dead cell to a live cell', () => {
 });
 
 
+it('toggles a live cell to a dead cell', () => {
+  expect(Game.getCell(Game.toggleCell(world, 1, 1), 1, 1)).toBe(false);
+});
+
+it('toggles a dead cell to a live cell', () => {
+  expect(Game.getCell(Game.toggleCell(world, 0, 2), 0, 2)).toBe(true);
+});
+
+
 it('retrieves all Neighbours', () => {
   expect(Game.getNeighbours(world, 1, 1).sort()).toStrictEqual([false, false, false, false, true, true, true, true]);
 });
