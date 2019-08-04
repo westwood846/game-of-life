@@ -101,6 +101,11 @@ it('does not count neighbours outside upper bounds', () => {
 });
 
 
+it('counts the population', () => {
+  expect(Game.getPopulation(world)).toBe(5);
+});
+
+
 // TODO: Tick Cell Tests
 
 

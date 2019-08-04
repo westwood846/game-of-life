@@ -63,6 +63,10 @@ const countAliveNeighbours = (world, row, col) => {
   return getNeighbours(world, row, col).filter(cell => cell === true).length;
 }
 
+const getPopulation = world => {
+  return world.map(row => Number(row.filter(alive => alive).length)).reduce((aliveOverall, aliveInRow) => aliveOverall + aliveInRow, 0);
+}
+
 const tickCell =  (world, row, col) => {
   let alive = getCell(world, row, col);
   let aliveNeighbours = countAliveNeighbours(world, row, col);
@@ -87,4 +91,4 @@ const tick = world => {
   return nextGeneration;
 }
 
-export default { parseDiagram, newEmptyWorld, newRandomWorld, getCell, setCell, toggleCell, getNeighbours, countAliveNeighbours, tickCell, tick };
+export default { parseDiagram, newEmptyWorld, newRandomWorld, getCell, setCell, toggleCell, getNeighbours, countAliveNeighbours, getPopulation, tickCell, tick };

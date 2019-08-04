@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import World from './components/World';
 import { togglePaused, setTickDuration, tick, randomize, clear } from "./actions/index";
+import Game from './gameOfLife';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,7 +32,8 @@ class App extends React.Component {
         </div>
         <World></World>
         <div className="statusbar">
-          Generation: {this.props.generation}
+          <span>Generation: {this.props.generation}</span>
+          <span>Population: {Game.getPopulation(this.props.world)}</span>
         </div>
       </div>
     );
@@ -41,6 +43,7 @@ class App extends React.Component {
 const mapStateToProps = state => ({
   paused: state.paused,
   tickDuration: state.tickDuration,
+  world: state.world,
   generation: state.generation
 })
 
