@@ -24,9 +24,9 @@ class App extends React.Component {
         <div className="controls">
           <button onClick={this.props.togglePaused}>{this.props.paused ? "Resume" : "Pause"}</button>
           <label>Tick Duration: <input type="number" step="100" min="100" value={this.props.tickDuration} onChange={this.handleTickDurationInputChange}></input></label>
+          <button onClick={this.props.tick(true)}>Tick</button>
         </div>
         <div className="controls">
-          <button onClick={this.props.tick(true)}>Tick</button>
           <button onClick={this.props.randomize}>Randomize</button>
           <button onClick={this.props.clear}>Clear</button>
         </div>
