@@ -30,6 +30,9 @@ class App extends React.Component {
           <button onClick={this.props.clear}>Clear</button>
         </div>
         <World></World>
+        <div className="statusbar">
+          Generation: {this.props.generation}
+        </div>
       </div>
     );
   }
@@ -37,7 +40,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
   paused: state.paused,
-  tickDuration: state.tickDuration
+  tickDuration: state.tickDuration,
+  generation: state.generation
 })
 
 const mapDispatchToProps = dispatch => ({
