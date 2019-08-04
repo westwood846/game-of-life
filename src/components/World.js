@@ -5,8 +5,8 @@ import Game from "../gameOfLife";
 
 class World extends React.Component {
 
-  WORLD_WIDTH = 16;
-  WORLD_HEIGHT = 16;
+  WORLD_WIDTH = 32;
+  WORLD_HEIGHT = 48;
 
   constructor(props) {
     super(props);
@@ -25,7 +25,7 @@ class World extends React.Component {
   }
 
   componentDidMount = () => {
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 750);
   }
 
   componentWillUnmount = () => {
