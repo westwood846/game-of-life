@@ -2,7 +2,7 @@
 
 See a live version at https://westwood846.github.io/game-of-life/
 
-This is a implementation of Conway's Game of Life using React.js and Redux. The cell automation can be paused/resumed, cleared, randomized, sped up/down and ultimately manipulated by placing live cells with the mouse.
+This is a implementation of [Conway's Game of Life](https://github.com/westwood846/game-of-life) using React.js and Redux. The cell automation can be paused/resumed, cleared, randomized, sped up/down and ultimately manipulated by placing live cells with the mouse.
 
 ## Running
 
